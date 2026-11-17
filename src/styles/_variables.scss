@@ -1,0 +1,57 @@
+$bg: #080b12;
+$surface: #101624;
+$surface-raised: #151d2f;
+$border: rgba(255, 255, 255, 0.08);
+$text: #e8eefb;
+$muted: #8a97ad;
+$js: #f7df1e;
+$ts: #4a9eff;
+$scss: #cf649a;
+$success: #3ddc97;
+$danger: #ff6b6b;
+$warning: #ffc857;
+
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-pill: 999px;
+
+$font-sans:
+  'Inter',
+  'Segoe UI',
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+
+$shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+$shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+@mixin glass($tint: rgba(255, 255, 255, 0.035)) {
+  background: $tint;
+  border: 1px solid $border;
+  backdrop-filter: blur(14px);
+}
+
+@mixin focus-ring {
+  outline: 2px solid rgba(74, 158, 255, 0.7);
+  outline-offset: 2px;
+}
+
+@mixin tablet {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

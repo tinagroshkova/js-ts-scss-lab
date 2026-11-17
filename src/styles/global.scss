@@ -1,0 +1,103 @@
+@use './variables' as v;
+
+:root {
+  --bg: #{v.$bg};
+  --surface: #{v.$surface};
+  --surface-raised: #{v.$surface-raised};
+  --border: #{v.$border};
+  --text: #{v.$text};
+  --muted: #{v.$muted};
+  --js: #{v.$js};
+  --ts: #{v.$ts};
+  --scss: #{v.$scss};
+  --success: #{v.$success};
+  --danger: #{v.$danger};
+  --warning: #{v.$warning};
+  --radius-sm: #{v.$radius-sm};
+  --radius-md: #{v.$radius-md};
+  --radius-lg: #{v.$radius-lg};
+  --radius-pill: #{v.$radius-pill};
+  --shadow-lg: #{v.$shadow-lg};
+  --shadow-sm: #{v.$shadow-sm};
+  --font-sans: #{v.$font-sans};
+  --font-mono: #{v.$font-mono};
+  --topic-color: var(--ts);
+  --topic-soft: rgba(74, 158, 255, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(74, 158, 255, 0.16), transparent 60%),
+    radial-gradient(900px 700px at 90% 0%, rgba(207, 100, 154, 0.12), transparent 55%),
+    radial-gradient(1000px 900px at 50% 120%, rgba(247, 223, 30, 0.08), transparent 60%), var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  @include v.focus-ring;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--ts);
+}
+
+::selection {
+  background: rgba(74, 158, 255, 0.35);
+}
+
+.topic-javascript {
+  --topic-color: var(--js);
+  --topic-soft: rgba(247, 223, 30, 0.14);
+}
+
+.topic-typescript {
+  --topic-color: var(--ts);
+  --topic-soft: rgba(74, 158, 255, 0.16);
+}
+
+.topic-scss {
+  --topic-color: var(--scss);
+  --topic-soft: rgba(207, 100, 154, 0.16);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

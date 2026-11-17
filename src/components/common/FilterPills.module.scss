@@ -1,0 +1,40 @@
+@use '../../styles/variables' as v;
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+}
+
+.active {
+  color: var(--text);
+  border-color: var(--topic-color);
+  background: var(--topic-soft);
+}
+
+@include v.mobile {
+  .pill {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
