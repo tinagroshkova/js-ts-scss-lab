@@ -27,7 +27,7 @@ const TopicCard = ({ topic, stats, onPractise }: TopicCardProps) => (
     />
     <div className={styles.metaRow}>
       <span>
-        {stats.cardsKnown}/{stats.cardsTotal} cards known
+        {stats.cardsKnown}/{stats.cardsTotal} cards known · {stats.cardsDue} due
       </span>
       <span>
         {stats.challengesSolved}/{stats.challengesTotal} challenges solved

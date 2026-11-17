@@ -50,6 +50,10 @@ const HomeView = ({ progress, onNavigate, onPractiseTopic, onReset }: HomeViewPr
             <strong>{overall.quizAccuracy}%</strong>
             <span>quiz accuracy</span>
           </div>
+          <div className={styles.heroStat}>
+            <strong>{overall.cardsDue}</strong>
+            <span>cards due</span>
+          </div>
         </div>
       </section>
 
@@ -83,7 +87,11 @@ const HomeView = ({ progress, onNavigate, onPractiseTopic, onReset }: HomeViewPr
           />
           <ModeCard
             title="Flashcards"
-            description="Flip, review and mark the cards you already know."
+            description={
+              overall.cardsDue > 0
+                ? `${overall.cardsDue} card${overall.cardsDue === 1 ? '' : 's'} due for review.`
+                : 'All caught up. Open the deck to review everything.'
+            }
             action="Open deck"
             accent="var(--js)"
             onClick={() => onNavigate('flashcards')}

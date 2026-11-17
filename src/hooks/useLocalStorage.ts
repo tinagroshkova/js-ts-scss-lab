@@ -2,11 +2,20 @@ import { useState } from 'react';
 
 export type SetStoredValue<T> = (value: T | ((current: T) => T)) => void;
 
-export const useLocalStorage = <T>(key: string, initialValue: T): [T, SetStoredValue<T>] => {
+export type MigrateStoredValue<T> = (value: unknown) => T;
+
+export const useLocalStorage = <T>(
+  key: string,
+  initialValue: T,
+  migrate?: MigrateStoredValue<T>,
+): [T, SetStoredValue<T>] => {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
       const rawValue = window.localStorage.getItem(key);
-      return rawValue ? (JSON.parse(rawValue) as T) : initialValue;
+      if (!rawValue) return initialValue;
+
+      const parsed = JSON.parse(rawValue) as unknown;
+      return migrate ? migrate(parsed) : (parsed as T);
     } catch {
       return initialValue;
     }

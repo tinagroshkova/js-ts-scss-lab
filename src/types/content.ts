@@ -31,6 +31,7 @@ export interface Flashcard {
   topic: TopicId;
   front: string;
   back: string;
+  example?: string;
 }
 
 interface ChallengeBase {

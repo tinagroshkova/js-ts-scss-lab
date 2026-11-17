@@ -35,6 +35,13 @@
   font-size: 14px;
 }
 
+.headerActions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .exit {
   flex-shrink: 0;
   padding: 9px 14px;
@@ -51,6 +58,75 @@
     color: var(--text);
     border-color: rgba(255, 255, 255, 0.24);
   }
+}
+
+.modeRow {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.modeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.modeActive {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.modeCount {
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 40px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.emptyText {
+  max-width: 520px;
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .progressRow {
@@ -119,6 +195,28 @@
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.01em;
+}
+
+.exampleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.example {
+  display: block;
+  padding: 12px 14px;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(4, 7, 12, 0.72);
+  color: #d7e3f7;
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  white-space: pre;
+  tab-size: 2;
 }
 
 .hint {
